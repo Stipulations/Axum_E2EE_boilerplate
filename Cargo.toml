@@ -1,0 +1,22 @@
+[package]
+name = "axum_e2ee_boilerplate"
+version = "0.1.0"
+edition = "2024"
+authors = ["Stipulations"]
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
+
+[dependencies]
+axum = "0.8.4"
+serde = { version = "1.0.219", features = ["derive"] }
+tokio = { version = "1.47.1", features = ["full"] }
+rand = "0.8.5" # will change to 0.9.* or what ever is latest once there isnt a issue with the dalek crates due to rand_core
+base64 = "0.22.1"
+x25519-dalek = { version = "2.0.1", features = ["getrandom"] }
+ed25519-dalek = { version = "2.2.0", features = ["rand_core"] }
